@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="false" >
+	<property name="logPath" value="/web/logs/test"></property>
+	<property name="outPattern" value="[%-5p] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%C] - %m%n" />
+	<property name="perfsOutPattern" value=" %m%n" />
+	<!-- 文件历史数 -->
+	<property name="maxHistory" value="7" />
+	<!-- console appender -->
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="com.yf.web.log.LogBackPatternLayOut">
+			<pattern>${outPattern}</pattern>
+		</layout>
+	</appender>
+	<!--业务日志 appender-->
+	<appender name="DEFAULT_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logPath}/test.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${dynamic.log.path}/${project.artifactId}.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+			<maxHistory>${maxHistory}</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${outPattern}</pattern>
+		</encoder>
+	</appender>
+	<root level="${log.level}">
+		<appender-ref ref="DEFAULT_FILE" />
+	</root>
+</configuration>
