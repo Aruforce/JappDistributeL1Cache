@@ -31,7 +31,7 @@ public class SystemConfigUtil {
 
     }
     /**
-     * 获取系统名称
+     * get application name
      * @return
      */
     public static String getApplicationName(){
@@ -39,7 +39,7 @@ public class SystemConfigUtil {
     }
 
     /**
-     * 获取redis的IP
+     * get redis ip
      * @return
      */
     public static String getRedisHost() {
@@ -47,7 +47,7 @@ public class SystemConfigUtil {
     }
 
     /**
-     * 获取redis的Port
+     * get redis port
      * @return
      */
     public static int getRedisPort() {
@@ -55,7 +55,7 @@ public class SystemConfigUtil {
     }
 
     /**
-     * 获取redis的password
+     * get redis password,if null or "" ,then null is returned
      * @return
      */
     public static String getRedisPass() {
@@ -64,7 +64,7 @@ public class SystemConfigUtil {
     }
 
     /**
-     * 获取redis的time out
+     * get redis connnect time out
      * @return
      */
     public static int getRedisTimeOut() {
@@ -72,7 +72,7 @@ public class SystemConfigUtil {
     }
 
     /**
-     * 获取lock的默认过期时间
+     * get default lock expire time ,in case of thread faliure (which Lead to distributed lock deadlock )
      * @return
      */
     public static int getLockExpireTime() {
@@ -80,14 +80,14 @@ public class SystemConfigUtil {
     }
 
     /**
-     * 获取lock的尝试次数
+     * get the number of attempts when try lock a lock
      * @return
      */
     public static int getTryLockCounts() {
         return Integer.valueOf(properties.getProperty(ConfigableParamNames.LOCK_TRY_COUNT.toString()));
     }
     /**
-     * 获取lock的尝试获取锁的尝试间隔
+     * Get the attempt interval of the lock to get the lock
      * @return
      */
     public static int getTryLockTimeInterval() {

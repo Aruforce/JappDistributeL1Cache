@@ -4,9 +4,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 外部缓存Acess锁KeyUtil
+ * Key related lock key
  *
  * @author Aruforce
+ * @since 0.0.1
  */
 public class CacheLineDistributeAcessLockKey {
     private static Logger logger = LoggerFactory.getLogger(CacheLineDistributeAcessLockKey.class);
