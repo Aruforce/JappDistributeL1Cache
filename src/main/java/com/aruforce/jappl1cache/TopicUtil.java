@@ -19,7 +19,7 @@ public class TopicUtil implements Topic {
         jedisPool = JedisPoolUtil.getJedisPool();
     }
 
-    public static Topic getTopic(){
+    public static Topic getInstance(){
         return topic;
     }
 

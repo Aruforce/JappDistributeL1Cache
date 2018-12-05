@@ -17,6 +17,10 @@ public class JedisPoolUtil {
     }
     static {
         JedisPoolConfig config = new JedisPoolConfig();
+        config.setBlockWhenExhausted(true);
+        config.setMaxTotal(10);
+        config.setMaxIdle(5);
+        config.setMinIdle(2);
         String host = SystemConfigUtil.getRedisHost();
         int port = SystemConfigUtil.getRedisPort();
         int timeout = SystemConfigUtil.getRedisTimeOut();

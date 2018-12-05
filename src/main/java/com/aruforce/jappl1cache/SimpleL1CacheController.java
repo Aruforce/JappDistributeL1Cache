@@ -51,7 +51,7 @@ public class SimpleL1CacheController implements L1CacheController {
 
     private SimpleL1CacheController() {
         l1cache = SimpleL1Cache.getInstance();
-        cacheEeventBus = new SimpleCacheEventBus();
+        cacheEeventBus = SimpleCacheEventBus.getInstance();
         cacheEeventBus.registerCacheEventListner(this);
         pubedEvents = new ConcurrentHashMap<String, CacheEvent>();
         distributedLock = DistributedLockUtil.getInstance();

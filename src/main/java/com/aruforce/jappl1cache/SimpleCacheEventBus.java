@@ -6,6 +6,7 @@ import com.aruforce.jappl1cache.inter.CacheEventListener;
 import com.aruforce.jappl1cache.inter.CacheEeventBus;
 import com.aruforce.jappl1cache.inter.CacheEvent;
 import com.aruforce.jappl1cache.spi.Topic;
+import com.aruforce.jappl1cache.util.SystemConfigUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.JedisPubSub;
@@ -17,14 +18,22 @@ import redis.clients.jedis.JedisPubSub;
  */
 public class SimpleCacheEventBus extends JedisPubSub implements CacheEeventBus{
 	Logger logger = LoggerFactory.getLogger(SimpleCacheEventBus.class);
+	private static final CacheEeventBus eventBus = new SimpleCacheEventBus();
+	/**
+	 * registed cache event listener
+	 */
+	private CacheEventListener listener;
 	private static final String eventTopic = "eventTopic";
-
- 	private String systemName = "MyTest";
+ 	private String systemName = SystemConfigUtil.getApplicationName();
 	private Topic topic;
 
-	//注册的全部的事件处理器
-	private CacheEventListener listener;
+	private SimpleCacheEventBus(){
+		topic = TopicUtil.getInstance();
+	}
 
+	public static CacheEeventBus getInstance(){
+		return eventBus;
+	}
 	@Override
 	public void registerCacheEventListner(CacheEventListener cacheEventListener) {
 		this.listener  = cacheEventListener;

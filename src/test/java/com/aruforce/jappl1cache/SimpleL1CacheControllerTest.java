@@ -20,7 +20,6 @@ public class SimpleL1CacheControllerTest {
             try {
                 cache = l1CacheController.getCache("123");
             } catch (CacheNotExistsException e) {
-                e.printStackTrace();
             }
             if (null !=cache){
                 flag = false;

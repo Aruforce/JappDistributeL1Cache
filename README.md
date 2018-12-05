@@ -40,4 +40,5 @@
 
 # 3.UseAge
 
-//TODO
+> please read test cases
+> it's really simple

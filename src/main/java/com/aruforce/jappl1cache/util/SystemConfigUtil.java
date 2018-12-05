@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import static com.aruforce.jappl1cache.util.ConfigableParamNames.APPLIACTION_NAME;
-
 /**
  * Read and Load system configs
  *
@@ -37,7 +35,7 @@ public class SystemConfigUtil {
      * @return
      */
     public static String getApplicationName(){
-        return properties.get(APPLIACTION_NAME).toString();
+        return properties.get(ConfigableParamNames.APPLIACTION_NAME.toString()).toString();
     }
 
     /**
