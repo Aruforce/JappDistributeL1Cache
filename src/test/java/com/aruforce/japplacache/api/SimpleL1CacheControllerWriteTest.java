@@ -1,8 +1,8 @@
-package com.yf.japplacache.api;
+package com.aruforce.japplacache.api;
 
-import com.yf.jappl1cache.api.SimpleL1CacheController;
-import com.yf.jappl1cache.api.exceptions.CacheNotExistsException;
-import com.yf.jappl1cache.api.inter.L1CacheController;
+import com.aruforce.jappl1cache.api.SimpleL1CacheController;
+import com.aruforce.jappl1cache.api.exceptions.CacheNotExistsException;
+import com.aruforce.jappl1cache.api.inter.L1CacheController;
 import org.junit.Test;
 
 import java.util.concurrent.CountDownLatch;
