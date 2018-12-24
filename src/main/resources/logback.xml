@@ -2,19 +2,20 @@
 <configuration scan="false" >
 	<property name="logPath" value="/web/logs/test"></property>
 	<property name="outPattern" value="[%-5p] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%C] - %m%n" />
+	<property name="perfsOutPattern" value=" %m%n" />
 	<!-- 文件历史数 -->
 	<property name="maxHistory" value="7" />
 	<!-- console appender -->
 	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-		<layout class="com.aruforce.web.log.LogBackPatternLayOut">
+		<encoder>
 			<pattern>${outPattern}</pattern>
-		</layout>
+		</encoder>
 	</appender>
 	<!--业务日志 appender-->
 	<appender name="DEFAULT_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<file>${logPath}/test.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>${logPath}/test.log.%d{yyyy-MM-dd}
+			<fileNamePattern>${dynamic.log.path}/${project.artifactId}.log.%d{yyyy-MM-dd}
 			</fileNamePattern>
 			<maxHistory>${maxHistory}</maxHistory>
 		</rollingPolicy>
@@ -24,5 +25,6 @@
 	</appender>
 	<root level="${log.level}">
 		<appender-ref ref="DEFAULT_FILE" />
+		<appender-ref ref="CONSOLE" />
 	</root>
 </configuration>

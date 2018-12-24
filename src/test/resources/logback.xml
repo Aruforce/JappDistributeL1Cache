@@ -7,9 +7,9 @@
 	<property name="maxHistory" value="7" />
 	<!-- console appender -->
 	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-		<layout class="com.yf.web.log.LogBackPatternLayOut">
+		<encoder>
 			<pattern>${outPattern}</pattern>
-		</layout>
+		</encoder>
 	</appender>
 	<!--业务日志 appender-->
 	<appender name="DEFAULT_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -23,7 +23,8 @@
 			<pattern>${outPattern}</pattern>
 		</encoder>
 	</appender>
-	<root level="${log.level}">
+	<root level="DEBUG">
 		<appender-ref ref="DEFAULT_FILE" />
+		<appender-ref ref="CONSOLE" />
 	</root>
 </configuration>
